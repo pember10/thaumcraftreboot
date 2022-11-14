@@ -7,15 +7,20 @@ https://docs.minecraftforge.net/en/latest/gettingstarted/
 (some of it is also noted in the [Forge MDK Installation Notes section below](#forge-mdk-installation-notes))
 
 There is a .rar file within the 'develop' branch that contains the decompiled sources for Thaumcraft 6. Most of the methods, fields, etc. are heavily obfuscated, but you can pretty easily infer what it is based on how it's used:
+
 For example:
+```java
 protected ResourceLocation func_110775_a(Entity entity) {
   return getEntityTexture((EntityFallingBlock)entity);
 }
-since func_110775_a returns an entity texture, and since the type is ResourceLocation and it's within the RenderFallingTaint class, the function was probably called "getFallingTaintEntityResource", but I suppose it doesn't matter much, since we can name it whatever we want.
+```
 
-### Additional Resources
+Since `func_110775_a` returns an entity texture, and since the type is ResourceLocation and it's within the RenderFallingTaint class, the function was probably called `getFallingTaintEntityResource`, but I suppose it doesn't matter much, since we can name it whatever we want.
+
+### Additional Dev Resources
 ... TODO...
 
+-------------------------------------------------
 
 
 ## Forge MDK Installation Notes
@@ -59,7 +64,7 @@ license, if you do not agree with it you can change your mapping names to other 
 build.gradle. For the latest license text, refer to the mapping file itself, or the reference copy here:
 https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md
 
-### Additional Resources:
+### Additional Forge MDK Installation Resources:
 Community Documentation: https://mcforge.readthedocs.io/en/latest/gettingstarted/  
 LexManos' Install Video: https://www.youtube.com/watch?v=8VEdtQLuLO0  
 Forge Forum: https://forums.minecraftforge.net/  
