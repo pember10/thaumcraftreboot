@@ -25,6 +25,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+import net.minecraftforge.fml.DistExecutor; //file:///X:/Git/thaumcraftreboot/fml-javadocs/1.19.2/net/minecraftforge/fml/DistExecutor.html
+import net.minecraftforge.api.distmarker.Dist;
 
 @Mod(Thaumcraft.MODID)
 public class Thaumcraft
