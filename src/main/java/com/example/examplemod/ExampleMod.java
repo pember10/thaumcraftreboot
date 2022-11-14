@@ -60,6 +60,10 @@ public class ExampleMod
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+    
+    /** 
+     * @param event
+     */
     private void commonSetup(final FMLCommonSetupEvent event)
     {
         // Some common setup code
@@ -67,6 +71,10 @@ public class ExampleMod
         LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
     }
 
+    
+    /** 
+     * @param event
+     */
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)

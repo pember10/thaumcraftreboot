@@ -18,7 +18,8 @@ protected ResourceLocation func_110775_a(Entity entity) {
 Since `func_110775_a` returns an entity texture, and since the type is ResourceLocation and it's within the RenderFallingTaint class, the function was probably called `getFallingTaintEntityResource`, but I suppose it doesn't matter much, since we can name it whatever we want.
 
 ### Additional Dev Resources
-... TODO...
+- 1.19.2 JavaDocs: https://nekoyue.github.io/ForgeJavaDocs-NG/javadoc/1.19.2/ (Conversion version)
+- 1.12.2 JavaDocs: https://nekoyue.github.io/ForgeJavaDocs-NG/javadoc/1.12.2/ (Current TC6 version)
 
 -------------------------------------------------
 
