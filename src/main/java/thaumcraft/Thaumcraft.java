@@ -24,6 +24,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.io.File;
+
 import org.slf4j.Logger;
 import net.minecraftforge.fml.DistExecutor; //file:///X:/Git/thaumcraftreboot/fml-javadocs/1.19.2/net/minecraftforge/fml/DistExecutor.html
 import net.minecraftforge.api.distmarker.Dist;
@@ -34,8 +37,10 @@ public class Thaumcraft
     public static final String MODID = "thaumcraft";
     public static final String MODNAME = "Thaumcraft";
     public static final String VERSION = "6.1.BETA26";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public File modDir;
+    public static final Logger LOGGER = LogUtils.getLogger();
 
+    // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
     // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
@@ -47,6 +52,8 @@ public class Thaumcraft
 
     public Thaumcraft()
     {
+        ConfigModBlocks.initBlocks(BLOCKS);
+
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         // Register the commonSetup method for modloading
