@@ -6,7 +6,7 @@ First and foremost, see the Forge documentation for getting an environment setup
 https://docs.minecraftforge.net/en/latest/gettingstarted/
 (some of it is also noted in the [Forge MDK Installation Notes section below](#forge-mdk-installation-notes))
 
-There is a .rar file within the 'develop' branch that contains the decompiled sources for Thaumcraft 6. Most of the methods, fields, etc. are heavily obfuscated, but you can pretty easily infer what it is based on how it's used:
+There is a .rar file within the 'develop' branch that contains the decompiled sources for Thaumcraft 4. Most of the methods, fields, etc. are somewhat obfuscated, but you can pretty easily infer what it is based on how it's used:
 
 For example:
 ```java
@@ -20,6 +20,17 @@ Since `func_110775_a` returns an entity texture, and since the type is ResourceL
 ### Additional Dev Resources
 - 1.19.2 JavaDocs: https://nekoyue.github.io/ForgeJavaDocs-NG/javadoc/1.19.2/ (Conversion version)
 - 1.12.2 JavaDocs: https://nekoyue.github.io/ForgeJavaDocs-NG/javadoc/1.12.2/ (Current TC6 version)
+- 1.7.10 JavaDocs: https://skmedix.github.io/ForgeJavaDocs/javadoc/forge/1.7.10-10.13.4.1614/ (TC4)
+
+### Dev Notes
+- Create an Item (within the API)
+  - Modify ThaumcraftItems.java -- check out the example SOAP_WATER_BUCKET. If you really want to get crazy, derive a custom class from the Item base class.
+  - If it's possible, can we do this all with JSON?
+- Create a Block (within the API)
+  - Modify ThaumcraftBlocks.java -- the SOAP_WATER_BLOCK is a good example. If you really want to go all out, create a class that derives from the Block class (though I don't know how the registry will handle that).
+- Create a Fluid (within the API)
+  - Modify ThaumcraftFluids.java -- The SOURCE_ and FLOWING_SOAP_WATER fluids are good examples.
+- In general, keep everything organized under these folders. See the /resources folder for examples of how to configure the display.
 
 -------------------------------------------------
 

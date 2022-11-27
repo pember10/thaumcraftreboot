@@ -2,6 +2,8 @@ package thaumcraft;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -24,6 +26,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import thaumcraft.api.fluids.ThaumcraftFluidTypes;
+import thaumcraft.api.fluids.ThaumcraftFluids;
+import thaumcraft.proxies.IProxy;
 
 import java.io.File;
 
@@ -37,6 +42,7 @@ public class Thaumcraft
     public static final String MODID = "thaumcraft";
     public static final String MODNAME = "Thaumcraft";
     public static final String VERSION = "6.1.BETA26";
+    public static IProxy proxy;
     public File modDir;
     public static final Logger LOGGER = LogUtils.getLogger();
 
@@ -49,6 +55,7 @@ public class Thaumcraft
     public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of(Material.STONE)));
     // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
     public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+
 
     public Thaumcraft()
     {
@@ -64,6 +71,9 @@ public class Thaumcraft
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
 
+        ThaumcraftFluids.register(modEventBus);
+        ThaumcraftFluidTypes.register(modEventBus);
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -77,6 +87,7 @@ public class Thaumcraft
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
         LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
+        //proxy.commonSetup(event);
     }
 
     
@@ -89,6 +100,7 @@ public class Thaumcraft
     {
         // Do something when the server starts
         LOGGER.info("HELLO from server starting");
+        //proxy.onServerStarting(event);
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
@@ -101,6 +113,11 @@ public class Thaumcraft
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            //proxy.onClientSetup(event);
+
+            // Example for render layering
+            ItemBlockRenderTypes.setRenderLayer(ThaumcraftFluids.SOURCE_SOAP_WATER.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ThaumcraftFluids.FLOWING_SOAP_WATER.get(), RenderType.translucent());
         }
     }
 }

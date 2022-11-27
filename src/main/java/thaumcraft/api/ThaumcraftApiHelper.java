@@ -1,7 +1,11 @@
 package thaumcraft.api;
 
+import java.util.Iterator;
+
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.common.crafting.CraftingHelper;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 
@@ -115,28 +119,42 @@ public class ThaumcraftApiHelper {
                 && ((target.getDamageValue() == 32767 && !strict) || target.getDamageValue() == input.getDamageValue()));
     }
 
-    // public static boolean areItemStackTagsEqualForCrafting(ItemStack slotItem, ItemStack recipeItem) {
-    //     if (recipeItem == null || slotItem == null)
-    //         return false;
-    //     if (recipeItem.getTag() != null && slotItem.getTag() == null)
-    //         return false;
-    //     if (recipeItem.getTag() == null)
-    //         return true;
+    public static boolean areItemStackTagsEqualForCrafting(ItemStack slotItem, ItemStack recipeItem) {
+        if (recipeItem == null || slotItem == null)
+            return false;
+        if (recipeItem.getTag() != null && slotItem.getTag() == null)
+            return false;
+        if (recipeItem.getTag() == null)
+            return true;
 
-    //     var iterator = recipeItem.getTag().getAllKeys().iterator();
-    //     while (iterator.hasNext()) {
+        var recipeTag = recipeItem.getTag();
+        var iterator = recipeTag != null ? recipeTag.getAllKeys().iterator() : (Iterator<String>)null;
+        while (iterator != null && iterator.hasNext()) {
+            String s = iterator.next();
+            var tagElement = slotItem.getTagElement(s);
+            if (tagElement != null) {
+                var recipeTagElement = recipeItem.getTagElement(s);
+                if (recipeTagElement != null && !tagElement.toString().equals(recipeTagElement.toString()))
+                    return false;
+                continue;
+            }
+            return false;
+        }
 
-    //         String s = iterator.next();
-    //         if (slotItem.getTags()) {
-    //             if (!slotItem.stackTagCompound.getTag(s).toString()
-    //                     .equals(recipeItem.stackTagCompound.getTag(s).toString())) {
-    //                 return false;
-    //             }
-    //             continue;
-    //         }
-    //         return false;
+        return true;
+    }
+
+    public static Ingredient getIngredient(Ingredient obj) {
+        return (Ingredient)obj;
+    }
+
+    public static Ingredient getIngredient(ItemStack obj) {
+        return Ingredient.of((ItemStack) obj);
+    }
+
+    // public static ArrayList<Ingredient> getIngredients(ItemStack obj) {
+    //     for (int i = 0; i < catalysts.size(); i++) {
+    //         this.catalyst.add(ThaumcraftApiHelper.getIngredient(catalysts.get(i)));
     //     }
-
-    //     return true;
     // }
 }

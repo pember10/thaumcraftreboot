@@ -29,12 +29,12 @@ public class PlayerKnowledge {
         this.warpSticky.remove(player);
     }
 
-    public AspectList getAspectsDiscovered(String player) {
-        AspectList known = this.aspectsDiscovered.get(player);
-        if (known == null || known.size() <= 6) {
-            //addDiscoveredPrimalAspects(player);
-            known = this.aspectsDiscovered.get(player);
-        }
-        return known;
-    }
+    // public AspectList getAspectsDiscovered(String player) {
+    //     AspectList known = this.aspectsDiscovered.get(player);
+    //     if (known == null || known.size() <= 6) {
+    //         addDiscoveredPrimalAspects(player);
+    //         known = this.aspectsDiscovered.get(player);
+    //     }
+    //     return known;
+    // }
 }
