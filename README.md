@@ -21,6 +21,7 @@ Since `func_110775_a` returns an entity texture, and since the type is ResourceL
 - 1.19.2 JavaDocs: https://nekoyue.github.io/ForgeJavaDocs-NG/javadoc/1.19.2/ (Conversion version)
 - 1.12.2 JavaDocs: https://nekoyue.github.io/ForgeJavaDocs-NG/javadoc/1.12.2/ (Current TC6 version)
 - 1.7.10 JavaDocs: https://skmedix.github.io/ForgeJavaDocs/javadoc/forge/1.7.10-10.13.4.1614/ (TC4)
+- Modding Tutorials: https://www.youtube.com/playlist?list=PLKGarocXCE1HrC60yuTNTGRoZc6hf5Uvl
 
 ### Dev Notes
 - Create an Item (within the API)
@@ -31,6 +32,7 @@ Since `func_110775_a` returns an entity texture, and since the type is ResourceL
 - Create a Fluid (within the API)
   - Modify ThaumcraftFluids.java -- The SOURCE_ and FLOWING_SOAP_WATER fluids are good examples.
 - In general, keep everything organized under these folders. See the /resources folder for examples of how to configure the display.
+- When attempting to create a new block, search the whole project for instance of "flux_goo" and "fluxgoo". You'll see how to implement them.
 
 -------------------------------------------------
 

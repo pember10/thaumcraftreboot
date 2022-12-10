@@ -17,5 +17,6 @@
         "thaumatorium",
         "Thaumium",
         "vishroom"
-    ]
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
 }
