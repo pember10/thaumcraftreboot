@@ -20,6 +20,9 @@ public class ThaumcraftItems {
     public static final RegistryObject<Item> BRAIN = ITEMS.register("brain",
             () -> new Item(new Item.Properties().tab(ThaumcraftCreativeModeTab.THAUMCRAFT_TAB)));
 
+    public static final RegistryObject<Item> THAUMOMETER = ITEMS.register("thaumometer",
+            () -> new Item(new Item.Properties().tab(ThaumcraftCreativeModeTab.THAUMCRAFT_TAB)));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
