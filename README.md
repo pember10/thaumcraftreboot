@@ -22,17 +22,20 @@ Since `func_110775_a` returns an entity texture, and since the type is ResourceL
 - 1.12.2 JavaDocs: https://nekoyue.github.io/ForgeJavaDocs-NG/javadoc/1.12.2/ (Current TC6 version)
 - 1.7.10 JavaDocs: https://skmedix.github.io/ForgeJavaDocs/javadoc/forge/1.7.10-10.13.4.1614/ (TC4)
 - Modding Tutorials: https://www.youtube.com/playlist?list=PLKGarocXCE1HrC60yuTNTGRoZc6hf5Uvl
+- Loot Table Generator: https://misode.github.io/loot-table/ (for anything breakable, killable, milkable, etc.)
 
 ### Dev Notes
 - Create an Item (within the API)
-  - Modify ThaumcraftItems.java -- check out the example SOAP_WATER_BUCKET. If you really want to get crazy, derive a custom class from the Item base class.
+  - Modify ThaumcraftItems.java -- check out the example BRAIN or TABLE_WOOD
   - If it's possible, can we do this all with JSON?
 - Create a Block (within the API)
-  - Modify ThaumcraftBlocks.java -- the SOAP_WATER_BLOCK is a good example. If you really want to go all out, create a class that derives from the Block class (though I don't know how the registry will handle that).
+  - Modify ThaumcraftBlocks.java -- the TABLE_WOOD is a good example. If you really want to go all out, create a class that derives from the Block class (though I don't know how the registry will handle that).
 - Create a Fluid (within the API)
-  - Modify ThaumcraftFluids.java -- The SOURCE_ and FLOWING_SOAP_WATER fluids are good examples.
+  - TBD
 - In general, keep everything organized under these folders. See the /resources folder for examples of how to configure the display.
-- When attempting to create a new block, search the whole project for instance of "flux_goo" and "fluxgoo". You'll see how to implement them.
+- When attempting to create a new block, search the whole project for instance of "table_wood". You'll see how to implement them.
+- Also check the commit logs -- each commit that notes a tutorial can help you with the creation of items, blocks, recipes, etc.
+- Within IntelliJ, if you scroll to the bottom of the project, you'll see External Libraries -- this is where you can find the core Minecraft stuff that can be copied.
 
 -------------------------------------------------
 
@@ -51,7 +54,7 @@ normal code.
 Step 1: Open your command-line and browse to the folder where you extracted the zip file.
 
 Step 2: You're left with a choice.
-If you prefer to use VSCode (the preferred method)
+If you prefer to use VSCode
 1. Ensure that you have the Gradle extension installed in VSCode (the icon looks like an elephant).
 2. Within Gradle, expand Tasks > forgegradle runs, and run the `genVSCodeRuns` task.
 3. Optionally: If you don't have the Gradle extension, open a terminal and run `gradlew genVSCodeRuns` (in Windows, replace `gradlew` with `.\gradlew.bat`).
@@ -61,7 +64,7 @@ If you prefer to use Eclipse:
 2. Open Eclipse, Import > Existing Gradle Project > Select Folder 
    or run `gradlew eclipse` to generate the project.
 
-If you prefer to use IntelliJ:
+**If you prefer to use IntelliJ IDEA (the preferred):**
 1. Open IDEA, and import project.
 2. Select your build.gradle file and have it import.
 3. Run the following command: `gradlew genIntellijRuns` (`./gradlew genIntellijRuns` if you are on Mac/Linux)

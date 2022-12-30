@@ -17,11 +17,16 @@ import thaumcraft.api.items.ThaumcraftItems;
 import java.util.function.Supplier;
 
 public class ThaumcraftBlocks {
+    // Loot Table Generator: https://misode.github.io/loot-table/
+
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, Thaumcraft.MOD_ID);
 
     public static final RegistryObject<Block> TABLE_WOOD = registerBlock("table_wood",
-            () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).requiresCorrectToolForDrops()),
+            () -> new Block(BlockBehaviour.Properties.of(Material.WOOD)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .strength(6f)),
             ThaumcraftCreativeModeTab.THAUMCRAFT_TAB);  // Add chained properties after "of()", e.g. .lightLevel().explosionResistance().etc.
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
