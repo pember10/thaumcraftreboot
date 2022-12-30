@@ -2,62 +2,44 @@ package thaumcraft;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
-import thaumcraft.api.blocks.ThaumcraftBlocks;
-import thaumcraft.api.fluids.ThaumcraftFluidTypes;
-import thaumcraft.api.fluids.ThaumcraftFluids;
 import thaumcraft.api.items.ThaumcraftItems;
-import thaumcraft.api.particles.ThaumcraftParticleTypes;
-import thaumcraft.proxies.IProxy;
 
 import java.io.File;
 
 import org.slf4j.Logger;
-import net.minecraftforge.fml.DistExecutor; //file:///X:/Git/thaumcraftreboot/fml-javadocs/1.19.2/net/minecraftforge/fml/DistExecutor.html
-import net.minecraftforge.api.distmarker.Dist;
 
-@Mod(Thaumcraft.MODID)
+@Mod(Thaumcraft.MOD_ID)
 public class Thaumcraft
 {
-    public static final String MODID = "thaumcraft";
-    public static final String MODNAME = "Thaumcraft";
+    public static final String MOD_ID = "thaumcraft";
+    public static final String MOD_NAME = "Thaumcraft";
     public static final String VERSION = "7.1.BETA26";
-    public static IProxy proxy;
     public File modDir;
     public static final Logger LOGGER = LogUtils.getLogger();
 
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
     // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
 
 
     public Thaumcraft()
     {
-        ConfigModBlocks.initBlocks(BLOCKS);
+        //ConfigModBlocks.initBlocks(BLOCKS);
 
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
@@ -69,11 +51,7 @@ public class Thaumcraft
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
 
-        ThaumcraftFluids.register(modEventBus);
-        ThaumcraftFluidTypes.register(modEventBus);
-        ThaumcraftBlocks.register(modEventBus);
         ThaumcraftItems.register(modEventBus);
-        ThaumcraftParticleTypes.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -105,7 +83,7 @@ public class Thaumcraft
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
         @SubscribeEvent
