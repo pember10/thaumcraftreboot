@@ -1,0 +1,110 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/cube_all",
+	"texture_size": [64, 64],
+	"textures": {
+		"particle": "thaumcraft:block/table_wood",
+		"primary": "thaumcraft:block/table_wood"
+	},
+	"elements": [
+		{
+			"name": "shelf",
+			"from": [3, 3, 3],
+			"to": [13, 5, 13],
+			"faces": {
+				"north": {"uv": [2.5, 7.5, 5, 8], "texture": "#primary"},
+				"east": {"uv": [0, 7.5, 2.5, 8], "texture": "#primary"},
+				"south": {"uv": [7.5, 7.5, 10, 8], "texture": "#primary"},
+				"west": {"uv": [5, 7.5, 7.5, 8], "texture": "#primary"},
+				"up": {"uv": [5, 7.5, 2.5, 5], "texture": "#primary"},
+				"down": {"uv": [7.5, 5, 5, 7.5], "texture": "#primary"}
+			}
+		},
+		{
+			"name": "top",
+			"from": [0, 12, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [4, 4, 8, 5], "texture": "#primary"},
+				"east": {"uv": [0, 4, 4, 5], "texture": "#primary"},
+				"south": {"uv": [12, 4, 16, 5], "texture": "#primary"},
+				"west": {"uv": [8, 4, 12, 5], "texture": "#primary"},
+				"up": {"uv": [8, 4, 4, 0], "texture": "#primary"},
+				"down": {"uv": [12, 0, 8, 4], "texture": "#primary"}
+			}
+		},
+		{
+			"name": "leg_ne",
+			"from": [11, 0, 1],
+			"to": [15, 12, 5],
+			"faces": {
+				"north": {"uv": [9, 9, 10, 12], "texture": "#primary"},
+				"east": {"uv": [8, 9, 9, 12], "texture": "#primary"},
+				"south": {"uv": [11, 9, 12, 12], "texture": "#primary"},
+				"west": {"uv": [10, 9, 11, 12], "texture": "#primary"},
+				"up": {"uv": [10, 9, 9, 8], "texture": "#primary", "cullface": "down"},
+				"down": {"uv": [11, 8, 10, 9], "texture": "#primary", "cullface": "up"}
+			}
+		},
+		{
+			"name": "leg_se",
+			"from": [11, 0, 11],
+			"to": [15, 12, 15],
+			"faces": {
+				"north": {"uv": [5, 9, 6, 12], "texture": "#primary"},
+				"east": {"uv": [4, 9, 5, 12], "texture": "#primary"},
+				"south": {"uv": [7, 9, 8, 12], "texture": "#primary"},
+				"west": {"uv": [6, 9, 7, 12], "texture": "#primary"},
+				"up": {"uv": [6, 9, 5, 8], "texture": "#primary", "cullface": "down"},
+				"down": {"uv": [7, 8, 6, 9], "texture": "#primary", "cullface": "up"}
+			}
+		},
+		{
+			"name": "leg_sw",
+			"from": [1, 0, 11],
+			"to": [5, 12, 15],
+			"faces": {
+				"north": {"uv": [1, 9, 2, 12], "texture": "#primary"},
+				"east": {"uv": [0, 9, 1, 12], "texture": "#primary"},
+				"south": {"uv": [3, 9, 4, 12], "texture": "#primary"},
+				"west": {"uv": [2, 9, 3, 12], "texture": "#primary"},
+				"up": {"uv": [2, 9, 1, 8], "texture": "#primary", "cullface": "down"},
+				"down": {"uv": [3, 8, 2, 9], "texture": "#primary", "cullface": "up"}
+			}
+		},
+		{
+			"name": "leg_nw",
+			"from": [1, 0, 1],
+			"to": [5, 12, 5],
+			"faces": {
+				"north": {"uv": [1, 1, 2, 4], "texture": "#primary"},
+				"east": {"uv": [0, 1, 1, 4], "texture": "#primary"},
+				"south": {"uv": [3, 1, 4, 4], "texture": "#primary"},
+				"west": {"uv": [2, 1, 3, 4], "texture": "#primary"},
+				"up": {"uv": [2, 1, 1, 0], "texture": "#primary", "cullface": "down"},
+				"down": {"uv": [3, 0, 2, 1], "texture": "#primary", "cullface": "up"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "root",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"nbt": "{}",
+			"armAnimationEnabled": false,
+			"children": [
+				0,
+				1,
+				{
+					"name": "legs",
+					"origin": [0, 0, 0],
+					"color": 0,
+					"nbt": "{}",
+					"armAnimationEnabled": false,
+					"children": [2, 3, 4, 5]
+				}
+			]
+		}
+	]
+}
