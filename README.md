@@ -17,14 +17,20 @@ protected ResourceLocation func_110775_a(Entity entity) {
 
 Since `func_110775_a` returns an entity texture, and since the type is ResourceLocation and it's within the RenderFallingTaint class, the function was probably called `getFallingTaintEntityResource`, but I suppose it doesn't matter much, since we can name it whatever we want.
 
+### _BUT, BEFORE YOU START ANY DEVELOPMENT!..._
+... watch [Minecraft 1.19 Forge Modding Tutorial | SETTING UP THE WORKSPACE | #1
+](https://www.youtube.com/watch?v=LpoSy091wYI&list=PLKGarocXCE1HrC60yuTNTGRoZc6hf5Uvl&index=1) to see how everything is laid out.
+
 ### Additional Dev Resources
 - 1.19.2 JavaDocs: https://nekoyue.github.io/ForgeJavaDocs-NG/javadoc/1.19.2/ (Conversion version)
 - 1.12.2 JavaDocs: https://nekoyue.github.io/ForgeJavaDocs-NG/javadoc/1.12.2/ (Current TC6 version)
 - 1.7.10 JavaDocs: https://skmedix.github.io/ForgeJavaDocs/javadoc/forge/1.7.10-10.13.4.1614/ (TC4)
 - Modding Tutorials: https://www.youtube.com/playlist?list=PLKGarocXCE1HrC60yuTNTGRoZc6hf5Uvl
+  - This is an excellent getting-started playlist. It literally takes you step-by-step from easy to complex.
 - Loot Table Generator: https://misode.github.io/loot-table/ (for anything breakable, killable, milkable, etc.)
 
 ### Dev Notes
+- Each of the folders have their own README.md to provide guidance. Please update as you go.
 - Create an Item (within the API)
   - Modify ThaumcraftItems.java -- check out the example BRAIN or TABLE_WOOD
   - If it's possible, can we do this all with JSON?
@@ -32,10 +38,10 @@ Since `func_110775_a` returns an entity texture, and since the type is ResourceL
   - Modify ThaumcraftBlocks.java -- the TABLE_WOOD is a good example. If you really want to go all out, create a class that derives from the Block class (though I don't know how the registry will handle that).
 - Create a Fluid (within the API)
   - TBD
-- In general, keep everything organized under these folders. See the /resources folder for examples of how to configure the display.
+- Please try to keep everything organized under the same folder structure as `net.minecraft:client:extra` is within the External Libraries. It makes everything a lot smoother for MC without having to add a bunch of new code/hacks.
 - When attempting to create a new block, search the whole project for instance of "table_wood". You'll see how to implement them.
-- Also check the commit logs -- each commit that notes a tutorial can help you with the creation of items, blocks, recipes, etc.
-- Within IntelliJ, if you scroll to the bottom of the project, you'll see External Libraries -- this is where you can find the core Minecraft stuff that can be copied.
+- Also check the commit logs -- each commit that explicitly notes a tutorial can help you with the creation of items, blocks, recipes, etc.
+- Within IntelliJ, if you scroll to the bottom of the Project pane, you'll see External Libraries -- this is where you can find the core Minecraft stuff that can be copied.
 
 -------------------------------------------------
 

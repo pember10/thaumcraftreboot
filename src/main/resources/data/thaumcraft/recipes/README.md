@@ -13,10 +13,10 @@ It would be comparable to the 1.19.2 JSON file formatting like so:
   "type": "minecraft:crafting_shaped",
   "key": {
     "S": {
-      "tag": "minecraft:slabWood"
+      "item": "minecraft:slabWood"
     },
     "W": {
-      "tag": "minecraft:plankWood"
+      "item": "minecraft:plankWood"
     }
   },
   "pattern": [
@@ -30,3 +30,6 @@ It would be comparable to the 1.19.2 JSON file formatting like so:
   }
 }
 ```
+
+### Links
+- [Minecraft 1.19 Forge Modding Tutorial | RECIPES & LOOT TABLES | #4](https://www.youtube.com/watch?v=iFFc5-zkDcA&list=PLKGarocXCE1HrC60yuTNTGRoZc6hf5Uvl&index=4)

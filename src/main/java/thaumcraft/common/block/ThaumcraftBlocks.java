@@ -16,6 +16,9 @@ import thaumcraft.api.items.ThaumcraftItems;
 
 import java.util.function.Supplier;
 
+/**
+ * A registry for all the blocks.
+ */
 public class ThaumcraftBlocks {
     // Loot Table Generator: https://misode.github.io/loot-table/
 
@@ -23,11 +26,11 @@ public class ThaumcraftBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, Thaumcraft.MOD_ID);
 
     public static final RegistryObject<Block> TABLE_WOOD = registerBlock("table_wood",
-            () -> new Block(BlockBehaviour.Properties.of(Material.WOOD)
+            () -> new Block(BlockBehaviour.Properties.of(Material.WOOD)  // Add chained properties after "of()", e.g. .lightLevel().explosionResistance().etc.
                     .requiresCorrectToolForDrops()
-                    .noOcclusion()
-                    .strength(6f)),
-            ThaumcraftCreativeModeTab.THAUMCRAFT_TAB);  // Add chained properties after "of()", e.g. .lightLevel().explosionResistance().etc.
+                    .noOcclusion()  // Important for blocks that sit on another (i.e. a table), but the face of the other (i.e. grass) needs to be visible
+                    .strength(1f)),
+            ThaumcraftCreativeModeTab.THAUMCRAFT_TAB);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> result = BLOCKS.register(name, block);
